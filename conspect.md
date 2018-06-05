@@ -235,6 +235,8 @@ $$ m(\mu_i) \mathrel:= \dfrac{\sum\limits_{x\ \in\ N(\mu_i)}{K(x - \mu_i)\ x}}{ 
 
 <mark>Почему (0, 0) и (1, 1)</mark>, как интерпретировать precision-recall?
 
+The curve always goes through two points (0,0 and 1,1). 0,0 is where the classifier finds no positives (detects no alarms). In this case it always gets the negative cases right but it gets all positive cases wrong. The second point is 1,1 where everything is classified as positive. So the classifier gets all positive cases right but it gets all negative cases wrong. (I.e. it raises a false alarm on each negative case).
+
 **AUC** — площадь под ROC графиком (чем больше, тем лучше)
 
 
@@ -278,3 +280,20 @@ $$I_g(X) = \sum\limits_{y\in Y}\dfrac{|x_i:y_i=y|}{|X|}\dfrac{|x_i:y_i\neq y|}{|
 
 
 ### Перцептрон. Перцептрон с карманом.
+
+<img src="https://i.imgur.com/30jB6u9.png" width="250">
+
+Пусть точки линейно-разделимы какой-нибудь гиперплоскостью, $w$ — нормаль к ней. Тогда спроецировав точку $x$ на эту нормаль можно по знаку определить класс $y \in \{-1, 1\}$:
+
+$$ h(\mathbf x) = \texttt{sign}\, \bigg( \sum w_i x_i - \text{threshold} \bigg) $$
+
+Или: $\texttt{sign}\,(\mathbf{w}^T \mathbf{x})$. Обучение:
+1. Начнём со случайного вектора $w$
+2. Находим $\mathbf{x_i}$, что $h(\mathbf{x_i}) \neq y_i$
+3. Сдвигаем $\mathbf{w} \leftarrow \mathbf{w}+ y_i\mathbf{x_i}$ (раскроется в $\pm\,\mathbf x^2$, если нужно поменять знак)
+
+#### Перцептрон с карманом
+
+Если точки линейно не разделимы, то обучение перцептрона никогда не остановится. Чтобы это исправить, вводят перцептрон с карманом: при обучении для каждого нового $\mathbf{w}$ мы запоминаем ошибку, и в течение всего алгорима мы храним значение $\mathbf{w}$ с минимальной ошибкой. После этого можно ограничить число итераций и по их окончании взять наилучший вектор $\mathbf{w}$.
+
+### Ошибка внутри и вне выборки. Ошибка обобщения. Неравенство Хёфдинга. Валидация и кросс-валидация.
