@@ -591,7 +591,7 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
 <p><img src="https://i.imgur.com/TyuqOGW.png" alt=""></p>
 <h3>Логистическая регрессия. Градиентный спуск.</h3>
 <blockquote>
-<p>98 стр. | <a href="http://www.machinelearning.ru/wiki/images/5/53/Voron-ML-Lin-SG.pdf">Воронцов</a></p>
+<p>98 стр. | <a href="http://www.machinelearning.ru/wiki/images/5/53/Voron-ML-Lin-SG.pdf">Воронцов</a>  4</p>
 </blockquote>
 <p><mark>ЧТО ЭТО ВООБЩЕ</mark></p>
 <p>Логистическая функция (сигмоида):</p>
@@ -600,12 +600,15 @@ c100.7 8.3 195.3 44 280 108 55.3 42 101.7 93 139 153l9 14c2.7-4 5.7-8.7 9-14
 <p><img src="https://demiurg906.github.io/au_docs_ijJ9eOA8/Machine_learning/images/lec_06.02.png" alt=""></p>
 <p><span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>w</mi></mrow><annotation encoding="application/x-tex">w</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.02691em;">w</span></span></span></span> -- веса входного сигнала. Ставим цель -- максимизировать правдоподобие. Или минимизировать Loss:</p>
 <p><img src="https://demiurg906.github.io/au_docs_ijJ9eOA8/Machine_learning/images/lec_06.03.png" alt=""></p>
-<h3 class="mume-header" id="%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%B5%D0%BD%D1%82%D0%BD%D1%8B%D0%B9-%D1%81%D0%BF%D1%83%D1%81%D0%BA">Градиентный спуск</h3>
+<h4 class="mume-header" id="%D0%B3%D1%80%D0%B0%D0%B4%D0%B8%D0%B5%D0%BD%D1%82%D0%BD%D1%8B%D0%B9-%D1%81%D0%BF%D1%83%D1%81%D0%BA">Градиентный спуск</h4>
 
 <p>Тут <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>C</mi><mo>(</mo><mi>w</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">C(w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit" style="margin-right:0.07153em;">C</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span> -- Это функция потерь (то же самое, что и <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>L</mi><mo>(</mo><mi>w</mi><mo>)</mo></mrow><annotation encoding="application/x-tex">L(w)</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.75em;"></span><span class="strut bottom" style="height:1em;vertical-align:-0.25em;"></span><span class="base"><span class="mord mathit">L</span><span class="mopen">(</span><span class="mord mathit" style="margin-right:0.02691em;">w</span><span class="mclose">)</span></span></span></span> выше).</p>
 <p><img src="https://demiurg906.github.io/au_docs_ijJ9eOA8/Machine_learning/images/lec_06.04.png" alt=""></p>
 <p><img src="https://demiurg906.github.io/au_docs_ijJ9eOA8/Machine_learning/images/lec_06.05.png" alt=""></p>
 <p>Стохастический градиентный спуск -- считаем градиент не по всем точкам, а только по некоторым (батчам). Заметно ускоряет работу, при этом работает не сильно хуже, чем если бы считали по всем. Из-за того, что может проскачить шумы, может работать лучше. Обычный градиентный спуск будет учитывать все точки <span class="katex"><span class="katex-mathml"><math><semantics><mrow><mi>x</mi></mrow><annotation encoding="application/x-tex">x</annotation></semantics></math></span><span class="katex-html" aria-hidden="true"><span class="strut" style="height:0.43056em;"></span><span class="strut bottom" style="height:0.43056em;vertical-align:0em;"></span><span class="base"><span class="mord mathit">x</span></span></span></span>, и шумы тоже.</p>
+<h3 class="mume-header" id="%D0%B1%D0%B0%D0%B9%D0%B5%D1%81%D0%BE%D0%B2%D1%81%D0%BA%D0%B8%D0%B9-%D0%BA%D0%BB%D0%B0%D1%81%D1%81%D0%B8%D1%84%D0%B8%D0%BA%D0%B0%D1%82%D0%BE%D1%80-%D1%82%D0%B8%D0%BF%D1%8B-%D0%BE%D1%86%D0%B5%D0%BD%D0%BA%D0%B8-%D1%80%D0%B0%D1%81%D0%BF%D1%80%D0%B5%D0%B4%D0%B5%D0%BB%D0%B5%D0%BD%D0%B8%D0%B9-%D0%BF%D1%80%D0%B8%D0%B7%D0%BD%D0%B0%D0%BA%D0%BE%D0%B2-gaussian-bernoulli-multinomial-em-%D0%B0%D0%BB%D0%B3%D0%BE%D1%80%D0%B8%D1%82%D0%BC">Байесовский классификатор. Типы оценки распределений признаков (Gaussian, Bernoulli, Multinomial). EM алгоритм.</h3>
+
+<p><mark>пояснить за free lunch</mark></p>
 
       </div>
       
